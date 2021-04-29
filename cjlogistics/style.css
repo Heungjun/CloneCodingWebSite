@@ -1,0 +1,53 @@
+:root {
+  /* Color */
+  --color-header-background: RGBA(66, 66, 66, 0.66);
+  --color-font-white: #fff;
+
+  /* Size */
+  --fontSize-header-default: 16px;
+  --size-margin-long: 20px;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  background-color: var(--color-header-background);
+  height: 72px;
+  color: var(--color-font-white);
+}
+
+header .logo {
+  align-items: center;
+  display: flex;
+  width: 25%;
+}
+
+header .logo img {
+  height: 127px;
+  width: 47px;
+  margin-left: calc(var(--size-margin-long) * 3);
+}
+
+header .serviceListBtns {
+  display: flex;
+  font-size: var(--fontSize-header-default);
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+
+header .serviceListBtns li {
+  display: inline-block;
+  margin: 0 var(--size-margin-long);
+}
+
+header .etcBtns {
+}
