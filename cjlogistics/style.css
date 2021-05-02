@@ -157,8 +157,7 @@ ul {
   top: 50%;
   width: 0;
   height: var(--size-gageBar-height);
-  /* background-color: var(--color-banner-gage); */
-  background-color: red;
+  background-color: var(--color-banner-gage);
 }
 
 .section1 .infoNstate {
