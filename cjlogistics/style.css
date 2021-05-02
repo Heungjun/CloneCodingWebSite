@@ -146,13 +146,16 @@ ul {
 }
 
 .section1 .gageBars .gageBar {
+  position: absolute;
+  top: 50%;
   width: var(--size-gageBar-width);
   height: var(--size-gageBar-height);
   background-color: var(--color-banner-gageBar);
 }
 
 .section1 .gageBars .gage {
-  width: var(--size-gageBar-width);
+  top: 50%;
+  width: 0;
   height: var(--size-gageBar-height);
   /* background-color: var(--color-banner-gage); */
   background-color: red;
