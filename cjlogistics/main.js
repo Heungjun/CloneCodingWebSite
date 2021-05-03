@@ -67,6 +67,7 @@ function changeSlide(index) {
 changeSlide(slideIndex);
 
 function changeGage(slideIndex) {
+  if (slideSecTimerId) clearTimeout(slideSecTimerId);
   let i = 1;
   slideSecTimerId = setInterval(() => {
     const gage = document.querySelector(
