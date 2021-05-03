@@ -74,7 +74,7 @@ function changeGage(slideIndex) {
     );
     const temp = intervalTime / 100;
     gage.style.width = `${(i++ / temp) * 100}%`;
-    if (i > 100) clearTimeout(slideSecTimerId);
+    if (i > temp) clearTimeout(slideSecTimerId);
   }, 100);
 
   for (let j = 0; j < slideList.childElementCount; j++) {

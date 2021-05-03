@@ -104,6 +104,10 @@ ul {
   width: 60%;
 }
 
+.section1 .header .serviceListBtns li:hover {
+  cursor: pointer;
+}
+
 .section1 .carouselBtns {
   display: flex;
   position: absolute;
@@ -120,6 +124,7 @@ ul {
   background-image: url("/img/bg_MainTop_arrow.png");
   background-repeat: no-repeat;
   margin-left: var(--size-space-banner);
+  cursor: pointer;
 }
 
 .section1 .carouselBtns .carouselBtn2 {
@@ -129,6 +134,7 @@ ul {
   background-repeat: no-repeat;
   background-position: right;
   margin-right: var(--size-space-banner);
+  cursor: pointer;
 }
 
 .section1 .gageBars {
@@ -143,6 +149,7 @@ ul {
   width: var(--size-gageBar-width);
   height: var(--size-gageBar-height);
   margin: var(--size-space-gage);
+  cursor: pointer;
 }
 
 .section1 .gageBars .gageBar {
