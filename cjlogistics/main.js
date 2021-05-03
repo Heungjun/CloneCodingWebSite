@@ -21,15 +21,31 @@ const lastSlide = slideList.lastElementChild;
 const infoNstate = document.querySelector(
   ".section1 .gageBars .infoNstate .pageInfo"
 );
+infoNstate.parentElement
+  .getElementsByClassName("state")[0]
+  .addEventListener("click", (event) => {
+    const state = event.target.dataset.state;
+    if (state == "running") {
+      if (slideTimerId) clearTimeout(slideTimerId);
+      if (slideSecTimerId) clearTimeout(slideSecTimerId);
+      event.target.src = "img/icon_play.png";
+      event.target.dataset.state = "stopped";
+    } else {
+      const gage = document.querySelector(
+        `.section1 .gageBars .gageBar${slideIndex + 1} > .gage`
+      );
+      const width = gage.style.width.replace("%", "");
+      changeGage(slideIndex, parseInt(width) + 1);
+      event.target.src = "img/icon_stop.png";
+      event.target.dataset.state = "running";
+    }
+  });
 const intervalTime = 10000;
 let slideIndex = 0;
 
 let slideTimerId;
 let slideSecTimerId;
 function changeSlide(index) {
-  // 버튼 클릭으로 Index 변경할 시, 기존 timer kill
-  if (slideTimerId) clearTimeout(slideTimerId);
-
   // currentSlide: 현재 슬라이드 Element default:lastSlide (아래 로직에서 first로 변경함.)
   const currentSlide =
     document.querySelector(`.section1 .banners .${SHOWING_CLASS}`) ?? lastSlide;
@@ -60,22 +76,25 @@ function changeSlide(index) {
   //   slideIndex = [].indexOf.call(nextSlide.parentNode.children, nextSlide) + 1;
 
   changeGage(slideIndex);
-
-  slideTimerId = setTimeout(changeSlide, intervalTime, slideIndex + 1);
 }
 
 changeSlide(slideIndex);
 
-function changeGage(slideIndex) {
+function changeGage(slideIndex, startTime = 1) {
   if (slideSecTimerId) clearTimeout(slideSecTimerId);
-  let i = 1;
+  let i = startTime;
   slideSecTimerId = setInterval(() => {
     const gage = document.querySelector(
       `.section1 .gageBars .gageBar${slideIndex + 1} > .gage`
     );
     const temp = intervalTime / 100;
     gage.style.width = `${(i++ / temp) * 100}%`;
-    if (i > temp) clearTimeout(slideSecTimerId);
+
+    console.log(i);
+    if (i > temp) {
+      clearTimeout(slideSecTimerId);
+      changeSlide(slideIndex + 1);
+    }
   }, 100);
 
   for (let j = 0; j < slideList.childElementCount; j++) {
