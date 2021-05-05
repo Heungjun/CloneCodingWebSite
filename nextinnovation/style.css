@@ -47,7 +47,6 @@
 }
 
 .wrap {
-  background-color: green;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -56,7 +55,6 @@
 .swiper-slides {
   width: 100vw;
   height: 500vh;
-  transform: translate3d(0px, -100vh, 0px);
   transition-duration: 0ms;
 }
 .swiper-slides__list {
@@ -67,6 +65,16 @@
 
 .swiper-slides__list[data-index="0"] {
   background: url(/img/main_bg_01.jpg) no-repeat;
+  background-size: cover;
+}
+
+.swiper-slides__list[data-index="1"] {
+  background: url(/img/main_bg_02.jpg) no-repeat;
+  background-size: cover;
+}
+
+.swiper-slides__list[data-index="2"] {
+  background: url(/img/main_bg_03.jpg) no-repeat;
   background-size: cover;
 }
 
