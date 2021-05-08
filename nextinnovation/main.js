@@ -21,7 +21,19 @@ const swiperSlidesUp = document.querySelectorAll(
   ".swiper-slides__button > :first-child"
 );
 swiperSlidesUp.forEach(function (element) {
-  element.addEventListener("click", () => {});
+  element.addEventListener("click", () => {
+    if (slideTimerId) clearTimeout(slideTimerId);
+
+    slideIndex--;
+    changeSlideList();
+    if (slideIndex < 0) {
+      slideIndex = slideList.childElementCount - 2;
+      changeSlideList();
+    }
+    console.log(slideList.childElementCount);
+
+    slideTimerId = setTimeout(slideChangeNext, slideInterval);
+  });
 });
 const swiperSlidesDown = document.querySelectorAll(
   ".swiper-slides__button > :last-child"
