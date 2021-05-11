@@ -8,7 +8,7 @@ const slideLast = slideList.lastElementChild;
 
 // JS - Swiper
 let slideIndex = 0;
-const slideInterval = 3000;
+const slideInterval = 5000;
 let slideTimerId = setTimeout(slideChangeNext, slideInterval);
 
 // HTML - Append
@@ -26,11 +26,14 @@ swiperSlidesUp.forEach(function (element) {
 
     slideIndex--;
     changeSlideList();
+
     if (slideIndex < 0) {
       slideIndex = slideList.childElementCount - 2;
-      changeSlideList();
+      slideList.style.transitionDuration = "0ms";
+      setTimeout(changeSlideList, 700);
+
+      slideList.style.transitionDuration = "1000ms";
     }
-    console.log(slideList.childElementCount);
 
     slideTimerId = setTimeout(slideChangeNext, slideInterval);
   });
@@ -49,6 +52,7 @@ function slideChangeNext() {
   changeSlideList();
   if (slideIndex >= 3) {
     slideIndex = 0;
+    changeSlideList();
   }
 
   slideTimerId = setTimeout(slideChangeNext, slideInterval);

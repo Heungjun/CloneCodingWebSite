@@ -46,6 +46,10 @@
   color: var(--color-white);
 }
 
+.menus__list:hover {
+  cursor: pointer;
+}
+
 .wrap {
   width: 100vw;
   height: 100vh;
@@ -55,7 +59,7 @@
 .swiper-slides {
   width: 100vw;
   height: 500vh;
-  transition-duration: 0ms;
+  transition-duration: 1000ms;
 }
 .swiper-slides__list {
   position: relative;
